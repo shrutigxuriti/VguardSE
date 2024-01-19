@@ -56,6 +56,7 @@ const SetPassword: React.FC<SetPasswordProps> = ({ navigation, route }) => {
             setIsPopupVisible(true);
             setPopupMessage("Enter same password!")
         }
+        navigation.navigate('newLoginKyc', {usernumber: usernumber})
         console.log("Confirm Password")
     }
 
