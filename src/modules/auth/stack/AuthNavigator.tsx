@@ -9,6 +9,8 @@ import LoginWithOtp from '../pages/LoginWithOtp';
 import ReUpdateKycOTP from '../pages/ReUpdateKycOTP';
 import ReUpdateKyc from '../pages/ReUpdateKyc';
 import ReUpdateKycPreview from '../pages/ReUpdateKycPreview';
+import NewLogin from '../pages/NewLogin';
+import SetPassword from '../pages/SetPassword';
 
 
 const AuthNavigator: React.FC = () => {
@@ -27,6 +29,8 @@ const AuthNavigator: React.FC = () => {
       <Stack.Screen name="updatekyc" component={ReUpdateKycOTP} options={{ headerShown: false }} />
       <Stack.Screen name="ReUpdateKyc" component={ReUpdateKyc} options={{ headerShown: false }} />
       <Stack.Screen name="PreviewReUpdateKyc" component={ReUpdateKycPreview} options={{ headerShown: false }} />
+      <Stack.Screen name="newLogin" component={NewLogin} options={{ headerShown: false }} />
+      <Stack.Screen name="setPassword" component={SetPassword} options={{ headerShown: false }} />
       <Stack.Screen name="Home" component={HomeStack} />
     </Stack.Navigator>
   );

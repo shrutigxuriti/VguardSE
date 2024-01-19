@@ -209,6 +209,12 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
                 onPress={() => navigation.navigate('loginWithNumber')}
                 width="100%"
               />
+              <Buttons
+                label={t('strings:first_login')}
+                variant="blackButton"
+                onPress={() => navigation.navigate('newLogin')}
+                width="100%"
+              />
               {/* <Buttons
                 style={styles.button}
                 label={t('strings:new_user_registration')}

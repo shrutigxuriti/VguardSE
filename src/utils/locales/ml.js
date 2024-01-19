@@ -1,5 +1,8 @@
 export default {
     strings: {
+        first_login: "ആദ്യ ലോഗിൻ",
+        set_password: "പാസ്വേഡ് സജ്ജമാക്കുക",
+        new_login: "പുതിയ ലോഗിൻ",
         language: 'Malayalam',
         app_name: 'വി-ഗാർഡ് റിഷ്ത',
         ga_tracking_id: 'UA-40418155-2',

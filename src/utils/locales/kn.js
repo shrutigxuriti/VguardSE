@@ -1,5 +1,8 @@
 export default {
     strings: {
+        first_login: "ಮೊದಲ ಲಾಗಿನ್",
+        set_password: "ಪಾಸ್ವರ್ಡ್ ಹೊಂದಿಸಿ",
+        new_login: "ಹೊಸ ಲಾಗಿನ್",
         language: 'Kannada',
         app_name: 'ವಿ-ಗಾರ್ಡ್ ರಿಷ್ತಾ',
         please_wait: 'ದಯಮಾಡಿ ನಿರೀಕ್ಷಿಸಿ...',

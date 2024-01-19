@@ -1,5 +1,8 @@
 export default {
     strings: {
+        first_login: "प्रथम लॉगिन",
+        set_password: "पासवर्ड सेट करा",
+        new_login: "नवीन लॉगिन",
         language: 'Marathi',
         app_name: 'V-Guard Rishta',
         ga_tracking_id: 'UA-40418155-2',

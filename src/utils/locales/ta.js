@@ -1,5 +1,8 @@
 export default {
     strings: {
+        first_login: "முதல் உள்நுழைவு",
+        set_password: "கடவுச்சொல்லை அமைக்கவும்",
+        new_login: "புதிய உள்நுழைவு",
         language: 'Tamil',
         app_name: 'V-Guard Rishta',
         ga_tracking_id: 'UA-40418155-2',

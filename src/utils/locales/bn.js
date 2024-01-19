@@ -1,5 +1,8 @@
 export default {
     strings: {
+        new_login: "নতুন লগইন",
+        set_password: "পাসওয়ার্ড সেট করুন",
+        first_login: "প্রথম লগইন",
         language: "Bangla",
         app_name: "ভি-গার্ড রিশতা",
         channel_id: "চ্যানেল আইডি",

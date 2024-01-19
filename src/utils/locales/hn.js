@@ -1,5 +1,8 @@
 export default {
     strings: {
+        first_login: "पहला लोगिन",
+        set_password: "पासवर्ड सेट करें",
+        new_login: "नया लॉगिन",
         language: "Hindi",
         app_name: "वी-गार्ड रिश्ता",
         please_wait: "कृपया प्रतीक्षा करे",

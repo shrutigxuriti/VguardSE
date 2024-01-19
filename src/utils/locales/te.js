@@ -1,5 +1,8 @@
 export default {
     strings: {
+        first_login: "మొదటి లాగిన్",
+        set_password: "పాస్వర్డ్ను సెట్ చేయండి",
+        new_login: "కొత్త లాగిన్",
         language: 'Telugu',
         app_name: 'V-Guard Rishta',
         ga_tracking_id: 'UA-40418155-2',

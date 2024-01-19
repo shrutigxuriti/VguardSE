@@ -1,5 +1,7 @@
 export default {
     strings: {
+        first_login: "First Login",
+        set_password: "Set Password",
         language: "English",
         app_name: "V-Guard Rishta Retailer",
         channel_id: "Channel Id",
@@ -24,6 +26,7 @@ export default {
         district: "District",
         pincode: "Pincode*",
         update: "There is a new version available in the Play store, Please update.",
+        new_login: "New Login",
         lbl_forgot_password: "Forgot Password",
         dashboard: "Dashboard",
         forgot_password_question: "Forgot Password?",
