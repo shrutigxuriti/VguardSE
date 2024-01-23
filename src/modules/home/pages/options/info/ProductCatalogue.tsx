@@ -18,7 +18,7 @@ const ProductCatalogue: React.FC = () => {
 
   useEffect(() => {
     getVguardProdCatalog()
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         const updatedData = responseData.map(item => ({
           ...item,

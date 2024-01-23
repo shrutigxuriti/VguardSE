@@ -29,7 +29,7 @@ const DailyWinner: React.FC = () => {
   useEffect(() => {
     // Use the actual API call to fetch dates
     getDailyWinnerDates()
-      .then(response => response.json())
+      .then(response => response.data)
       .then(data => {
         const dateList = data.map(item => item.date);
         setDates(dateList);
@@ -48,7 +48,7 @@ const DailyWinner: React.FC = () => {
 
   const sendDate = (selectedDate: string) => {
     getDailyWinner(selectedDate)
-      .then(response => response.json())
+      .then(response => response.data)
       .then(data => {
         if (Array.isArray(data)) {
           const updatedProfiles = data.map((item: Profile) => {

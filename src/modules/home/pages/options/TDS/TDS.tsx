@@ -92,7 +92,7 @@ const TDS: React.FC<TDSProps> = () => {
   useEffect(() => {
     console.log(assessmentYearValue)
     getTdsList(assessmentYearValue)
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         if (Array.isArray(responseData)) {
           setCertificateList(responseData);

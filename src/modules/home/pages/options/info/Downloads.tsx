@@ -18,7 +18,7 @@ const Downloads: React.FC = () => {
 
   useEffect(() => {
     getDownloads()
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         const updatedData: DownloadItem[] = responseData.map(item => ({
           ...item,

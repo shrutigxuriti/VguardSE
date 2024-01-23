@@ -26,8 +26,6 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [chequeImageName, setChequeImageName] = useState("");
   const [imageOpen, setimageOpen] = useState("")
   const [loading, setLoading] = useState(true);
-  const [disableOptions, setDisableOptions] = useState(false);
-
   const handleImageClick = (imageSource: string | "") => {
     setShowImagePreviewModal(true);
     setimageOpen(imageSource);
@@ -35,14 +33,10 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const diffAcc = await AsyncStorage.getItem('diffAcc');
-        if (diffAcc == "1") {
-          setDisableOptions(true);
-        }
         const response = await getUser();
-        const res = await response.json();
+        const res = await response.data;
 
-        console.log(res);
+        console.log(res, "<><><><");
         setUserData(res);
         setLoading(false);
       } catch (error) {
@@ -97,14 +91,6 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
     });
   };
 
-  const handleAddSubLogin = async () => {
-    if (disableOptions == true) {
-      showSnackbar('User not allowed');
-    }
-    else {
-      navigation.navigate('Add Sub-Login')
-    }
-  }
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [popupContent, setPopupContent] = useState('');
 
@@ -112,15 +98,8 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
     setPopupVisible(true);
     setPopupContent("Coming Soon!")
   }
-
   const labels = [
-    // 'Preferred Language',
     'Contact Number',
-    'Store/Firm Name',
-    // 'Front Facade',
-    // 'GST Photo',
-  ];
-  const label2 = [
     'Date of Birth',
     'Email'
   ]
@@ -133,8 +112,6 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
     'Distict',
     'City',
     'Pincode',
-    'Marital Status',
-    'Annual Business Potential'
   ]
 
   const bankDetails = [
@@ -152,15 +129,6 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
       // const chequePhoto = await getFile(checkPhoto, 'CHEQUE', "2");
       const chequePhoto = await getImageUrl(checkPhoto, 'Cheque');
       const url = chequePhoto
-      return url;
-    }
-    if (fieldName === 'GST Photo') {
-      const gstFront = userData.gstPic;
-      setGstImageName(gstFront)
-      // const gstPhoto = await getFile(gstFront, 'GST', "2");
-      const gstPhoto = await getImageUrl(gstFront, 'GST');
-      const url = gstPhoto;
-      console.log("URL", url)
       return url;
     }
     const fieldMap: Record<string, string> = {
@@ -214,11 +182,9 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
   useEffect(() => {
     const fetchData = async () => {
       const fields = await renderFields(labels);
-      const label2Fields = await renderFields(label2);
       const addressFields = await renderFields(addressLabels);
       const bankFields = await renderFields(bankDetails);
       setRenderedFields(fields);
-      setRenderedlabel2Fields(label2Fields);
       setRenderedAddressFields(addressFields);
       setRenderedBankFields(bankFields);
     };
@@ -256,7 +222,7 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.buttons}>
+      {/* <View style={styles.buttons}>
         <TouchableHighlight
           style={styles.button}
           onPress={() => navigation.navigate('Edit Profile')}
@@ -275,7 +241,7 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
         >
           <Text style={styles.buttonText}>{t('strings:referral_code')}</Text>
         </TouchableHighlight>
-      </View>
+      </View> */}
       <View style={styles.detailsContainer}>
         {labels.map((label, index) => (
           <InputField
@@ -294,30 +260,6 @@ const Profile: React.FC<{ navigation: any }> = ({ navigation }) => {
             console.log("Image Pressed")
           }}
         /> */}
-
-        <InputField
-          label="Front Facade"
-          isImage
-          imageName={profileImage}
-          imageSource={profileImage}
-          onPressImage={() => handleImageClick(profileImage)}
-        />
-        <InputField
-          label="GST Photo"
-          isImage
-          imageName={gstImageName}
-          imageSource={gstCopySource}
-          onPressImage={() => handleImageClick(gstCopySource)}
-        />
-        {label2.map((label, index) => (
-          <InputField
-            key={index}
-            label={label}
-            value={renderedlabel2Fields ? renderedlabel2Fields[index] : ''}
-            disabled={true}
-            isImage={false}
-          />
-        ))}
 
         <Text style={styles.subHeading}>{t('strings:permanent_address')}</Text>
         {addressLabels.map((label, index) => (

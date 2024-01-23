@@ -141,7 +141,7 @@ const TDSStatement: React.FC<TDSProps> = () => {
 
   useEffect(() => {
     getTdsStatementList(postData)
-      .then((response) => response.json())
+      .then((response) => response.data)
       .then((responseData) => {
         console.log("POSTDATA", postData)
         console.log(responseData)

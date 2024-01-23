@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, StyleSheet, Image, Linking, TouchableOpacity, Modal } from 'react-native';
 import { responsiveFontSize, responsiveHeight } from 'react-native-responsive-dimensions';
 import colors from '../../../../colors';
-import { reUpdateUserForKyc, updateKycReatiler } from '../../../utils/apiservice';
+import { loginWithPassword, reUpdateUserForKyc, updateKycReatiler } from '../../../utils/apiservice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTranslation } from 'react-i18next';
 import { UserData } from '../../../utils/modules/UserData';
@@ -21,6 +21,7 @@ const PreviewNewKyc: React.FC<PreviewNewKycProps> = ({ navigation }) => {
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [popupContent, setPopupContent] = useState('');
     const [loader, showLoader] = useState(true);
+    const { login, showPopup, popupAuthContent, setShowPopup } = useAuth();
 
     useEffect(() => {
         AsyncStorage.getItem('VGUSER').then(result => {
@@ -33,22 +34,43 @@ const PreviewNewKyc: React.FC<PreviewNewKycProps> = ({ navigation }) => {
 
 
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         console.log("Post Data:----", postData);
-        reUpdateUserForKyc(postData)
-            .then(response => response.json())
-            .then((responseData) => {
-                console.log("RESPONSE DATA:", responseData);
-                setPopupVisible(true);
-                setPopupContent(responseData?.message);
+        // reUpdateUserForKyc(postData)
+        //     .then(response => response.data)
+        //     .then((responseData) => {
+        //         console.log("RESPONSE DATA:", responseData);
+        //         setPopupVisible(true);
+        //         setPopupContent(responseData?.message);
 
-                if (responseData?.code === 200 && responseData.message=="Your KYC re-submission successful") {
-                    AsyncStorage.removeItem('VGUSER');
-                }
-            })
-            .catch(error => {
-                console.error('Error posting data:', error);
-            });
+        //         if (responseData?.code === 200 && responseData.message=="Your KYC re-submission successful") {
+        //             AsyncStorage.removeItem('VGUSER');
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.error('Error posting data:', error);
+        //     });
+        try {
+            const response = await loginWithPassword('8888888880', '34859272');
+            console.log("RESPONSE----", response)
+            showLoader(false);
+      
+            if (response.status === 200) {
+              var r = await response.data;
+              console.log(r);
+              login(r);
+            }
+            else if (response.status === 500) {
+                setPopupVisible(!isPopupVisible);
+              setPopupContent("Something went wrong!")
+            } else {
+                setPopupVisible(!isPopupVisible);
+              setPopupContent("Wrong Username or Password!")
+            }
+          } catch (error) {
+            showLoader(false);
+            console.error('Login error:', error);
+          }
     };
 
     const handleClose = () => {

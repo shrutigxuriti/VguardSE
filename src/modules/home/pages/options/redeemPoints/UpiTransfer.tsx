@@ -59,7 +59,7 @@ const UpiTransfer = () => {
             setPointData(data);
         });
         checkVPA()
-            .then(response => response.json())
+            .then(response => response.data)
             .then(res => {
                 const result = res;
                 if (result.code == 404) {
@@ -73,7 +73,7 @@ const UpiTransfer = () => {
 
     const findUpi = async () => {
         verifyVPA()
-            .then(response => response.json())
+            .then(response => response.data)
             .then(res => {
                 const result = res;
                 setPopupVisible(false);

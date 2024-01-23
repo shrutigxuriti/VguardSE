@@ -319,7 +319,7 @@ const AddWarranty = ({navigation}) => {
     };
     console.log("POST DATA")
     const response = await sendCustomerData(postData);
-    const result = await response.json();
+    const result = await response.data;
     console.log("RESPONSE<><><><", result);
     if (result.errorCode == 1) {
       var couponPoints = result.couponPoints;

@@ -38,7 +38,7 @@ const ForgotPassword: React.FC<{ navigation: any }> = ({ navigation }) => {
         if (message === "SMS sent for new password") {
           showLoader(false);
           setTimeout(() => {
-            navigation.navigate('login');
+            navigation.navigate('login', {usernumber: ''});
           }, 1000);
         } else {
           showLoader(false);

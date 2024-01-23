@@ -79,7 +79,7 @@ const Ticket: React.FC<{ navigation: any }> = ({ navigation }) => {
       setUserData(data);
     });
     getTicketTypes()
-      .then((response) => response.json())
+      .then((response) => response.data)
       .then((data) => {
         setOptions(data);
         showLoader(false);

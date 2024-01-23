@@ -17,7 +17,7 @@ const BottomTabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigat
   const [count, setCount] = useState(0);
   useEffect(() => {
     getNotificationCount().then(async r => {
-      const result = await r.json();
+      const result = await r.data;
       setCount(result.count);
     });
 }, []);

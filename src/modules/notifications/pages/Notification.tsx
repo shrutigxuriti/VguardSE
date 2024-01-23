@@ -19,7 +19,7 @@ const Notification: React.FC = () => {
     
     getNotifications().then(async (response) => {
       console.log(response);
-      const result = await response.json();
+      const result = await response.data;
       console.log(result);
       setNotifications(result);
       showLoader(false);

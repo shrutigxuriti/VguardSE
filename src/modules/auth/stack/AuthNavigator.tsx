@@ -9,10 +9,13 @@ import LoginWithOtp from '../pages/LoginWithOtp';
 import ReUpdateKycOTP from '../pages/ReUpdateKycOTP';
 import ReUpdateKyc from '../pages/ReUpdateKyc';
 import ReUpdateKycPreview from '../pages/ReUpdateKycPreview';
-import NewLogin from '../pages/NewLogin';
+// import NewLogin from '../pages/NewLogin';
 import SetPassword from '../pages/SetPassword';
 import NewLoginKyc from '../pages/NewLoginKyc';
 import PreviewNewKyc from '../pages/PreviewNewKyc';
+import NumberLogin from '../pages/NumberLogin';
+import EnterOtp from '../pages/EnterOtp';
+import NewProfileDetails from '../pages/NewProfileDetails';
 
 
 const AuthNavigator: React.FC = () => {
@@ -31,10 +34,13 @@ const AuthNavigator: React.FC = () => {
       <Stack.Screen name="updatekyc" component={ReUpdateKycOTP} options={{ headerShown: false }} />
       <Stack.Screen name="ReUpdateKyc" component={ReUpdateKyc} options={{ headerShown: false }} />
       <Stack.Screen name="PreviewReUpdateKyc" component={ReUpdateKycPreview} options={{ headerShown: false }} />
-      <Stack.Screen name="newLogin" component={NewLogin} options={{ headerShown: false }} />
+      {/* <Stack.Screen name="newLogin" component={NewLogin} options={{ headerShown: false }} /> */}
       <Stack.Screen name="setPassword" component={SetPassword} options={{ headerShown: false }} />
       <Stack.Screen name="newLoginKyc" component={NewLoginKyc} options={{ headerShown: false }} />
       <Stack.Screen name="previewNewKyc" component={PreviewNewKyc} options={{ headerShown: false }} />
+      <Stack.Screen name="numberLogin" component={NumberLogin} options={{ headerShown: false }} />
+      <Stack.Screen name="enterOtp" component={EnterOtp} options={{ headerShown: false }} />
+      <Stack.Screen name="newProfileDetails" component={NewProfileDetails} options={{ headerShown: false }} />
       <Stack.Screen name="Home" component={HomeStack} />
     </Stack.Navigator>
   );

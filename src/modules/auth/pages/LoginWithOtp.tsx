@@ -142,7 +142,7 @@ const LoginWithOtp: React.FC<LoginWithOtpProps> = ({ navigation, route }) => {
           loginWithOtp(number, otp)
             .then((response) => {
               if (response.status === 200) {
-                return response.json();
+                return response.data;
               } else {
                 throw new Error('Error logging in with OTP');
               }

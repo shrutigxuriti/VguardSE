@@ -61,7 +61,7 @@ const ReUpdateKyc: React.FC<ReUpdateKycProps> = ({ navigation, route }) => {
               throw new Error(`HTTP error! Status: ${response.status}`);
             }
       
-            const res = await response.json();
+            const res = await response.data;
             console.log(res);
       
             setPostData(res);

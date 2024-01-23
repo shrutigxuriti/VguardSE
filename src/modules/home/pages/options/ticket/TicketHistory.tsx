@@ -56,7 +56,7 @@ const TicketHistory: React.FC = () => {
     });
 
     getTicketHistory()
-      .then(response => response.json())
+      .then(response => response.data)
       .then((responseData: TicketItem[]) => {
         const sortedData = responseData.sort((a, b) => {
           const dateA = moment(a.createdDate, 'DD MMM YYYY');

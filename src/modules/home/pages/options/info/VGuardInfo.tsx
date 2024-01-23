@@ -18,7 +18,7 @@ const VGuardInfo: React.FC = () => {
 
   useEffect(() => {
     getVguardInfoDownloads()
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         const updatedData = responseData.map(item => ({
           ...item,

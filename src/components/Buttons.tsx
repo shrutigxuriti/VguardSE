@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     shadowColor: 'rgba(0, 0, 0, 0.8)',
     elevation: 5,
-    flex: 1,
+    // flex: 1,
   },
   defaultButton: {
     backgroundColor: colors.yellow,

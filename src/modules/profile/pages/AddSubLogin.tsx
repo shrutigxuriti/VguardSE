@@ -33,7 +33,7 @@ const AddSubLogin: React.FC<{ navigation: any }> = ({ navigation }) => {
         const isValidNumber = /^\d{10}$/.test(contactNo);
         if (isValidNumber && inputName) {
             addLogin(data)
-                .then(response => response.json())
+                .then(response => response.data)
                 .then((responseData) => {
                     setPopupVisible(true);
                     setPopupContent(responseData.message);

@@ -273,7 +273,7 @@ const ScanCode: React.FC<ScanCodeProps> = ({navigation, route}) => {
     showScratchCard(false);
     if (CouponResponse?.transactId && CouponResponse?.bitEligibleScratchCard) {
       getBonusPoints(CouponResponse.transactId).then(response =>
-        response.json().then(result => {
+        response.data.then(result => {
           var couponPoints = result.promotionPoints;
           setScratchCardProps({
             rewardImage: {

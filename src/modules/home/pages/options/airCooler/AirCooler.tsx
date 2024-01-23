@@ -55,7 +55,7 @@ const AirCooler: React.FC<{ navigation: any }> = ({ navigation }) => {
     const loadStarDetails = async () => {
         try {
             const response = await getAirCoolerPointsSummary();
-            const result = await response.json();
+            const result = await response.data;
             setUserStarData(result);
             return result;
         }

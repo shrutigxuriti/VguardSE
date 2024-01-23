@@ -68,7 +68,7 @@ const Bank: React.FC<BankProps> = () => {
                 await getUserRoleFromAsyncStorage();
                 const response = await getany();
                 if (response.status === 200) {
-                    const data = await response.json();
+                    const data = await response.data;
                     console.log(data, '<><<error message<><>');
                     setAccHolder(data.bankAccHolderName);
                     setAccType(data.bankAccType);
@@ -96,7 +96,7 @@ const Bank: React.FC<BankProps> = () => {
         getBanks()
             .then((response) => {
                 if (response.status === 200) {
-                    return response.json();
+                    return response.data;
                 } else {
                     throw new Error('Failed to get bank names');
                 }
@@ -221,7 +221,7 @@ const Bank: React.FC<BankProps> = () => {
                 .then((response) => {
                     console.log(postData, '---------------postdata');
                     if (response.status === 200) {
-                        const responses = response.json();
+                        const responses = response.data;
                         return responses;
                     } else {
                         setPopupContent("Failed to update Bank Details");

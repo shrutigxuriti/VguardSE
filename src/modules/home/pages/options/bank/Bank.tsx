@@ -61,7 +61,7 @@ const Bank: React.FC<BankProps> = () => {
       try {
         const response = await getany();
         if (response.status === 200) {
-          const data = await response.json();
+          const data = await response.data;
           console.log(data, '<><<error message<><>');
           setAccHolder(data.bankAccHolderName);
           setAccType(data.bankAccType);
@@ -90,7 +90,7 @@ const Bank: React.FC<BankProps> = () => {
     getBanks()
       .then((response) => {
         if (response.status === 200) {
-          return response.json();
+          return response.data;
         } else {
           throw new Error('Failed to get bank names');
         }
@@ -137,7 +137,7 @@ const Bank: React.FC<BankProps> = () => {
             .then(response => {
               if (response.status === 200) {
                 showLoader(false);
-                return response.json();
+                return response.data;
               } else {
                 showLoader(false);
                 setPopupContent("Failed to update Bank Details");

@@ -21,7 +21,7 @@ const AirCoolerNumberOfScans: React.FC = () => {
   const fetchRedemptionHistory = async () => {
     try {
       const response = await getAirCoolerScanCodeHistory();
-      const responseData: RedemptionHistoryItem[] = await response.json();
+      const responseData: RedemptionHistoryItem[] = await response.data;
 
       setRedemptionHistoryData(responseData);
     } catch (error) {

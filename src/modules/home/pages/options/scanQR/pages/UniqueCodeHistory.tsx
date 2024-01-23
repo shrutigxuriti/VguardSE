@@ -21,7 +21,7 @@ const UniqueCodeHistory: React.FC = () => {
   const fetchRedemptionHistory = async () => {
     try {
       const response = await getScanCodeHistory();
-      const responseData: RedemptionHistoryItem[] = await response.json();
+      const responseData: RedemptionHistoryItem[] = await response.data;
 
       setRedemptionHistoryData(responseData);
     } catch (error) {

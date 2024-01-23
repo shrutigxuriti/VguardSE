@@ -19,7 +19,7 @@ const Schemes: React.FC = () => {
   useEffect(() => {
     console.log("Image loading");
     getSchemeImages()
-      .then(response => response.json()
+      .then(response => response.data
         .then(result => {
           console.log("Result:", result)
           var ar = [];

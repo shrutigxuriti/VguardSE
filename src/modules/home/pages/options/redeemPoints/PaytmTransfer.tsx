@@ -34,7 +34,7 @@ const PaytmTransfer = () => {
 
     paytmTransfer(transferData)
       .then(response => {
-        return response.json();
+        return response.data;
       })
       .then(jsonData => {
         console.log('API Response:', jsonData.message);

@@ -72,7 +72,7 @@ const UpdatePAN: React.FC<BankProps> = () => {
       console.log(postData, '---------------postdata');
       console.log("<>><<<<", response)
       if (response.status === 200) {
-        const responseData = await response.json();
+        const responseData = await response.data;
         console.log('RESPONSE', responseData);
         setPopupContent(responseData.message);
         setPopupVisible(true);

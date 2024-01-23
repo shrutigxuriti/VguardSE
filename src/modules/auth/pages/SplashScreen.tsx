@@ -15,7 +15,7 @@ const SplashScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
     console.log('Language changed:', i18n.language);
 
     const timeoutId = setTimeout(() => {
-      navigation.navigate('login');
+      navigation.navigate('numberLogin');
     }, 1000);
 
     return () => clearTimeout(timeoutId);

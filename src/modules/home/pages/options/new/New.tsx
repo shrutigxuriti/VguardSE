@@ -21,7 +21,7 @@ const New: React.FC<NewProps> = ({ navigation }) => {
 
   useEffect(() => {
     getWhatsNew()
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         const updatedData = responseData.map((item: DataItem) => {
           if (item.imagePath.startsWith('img/')) {

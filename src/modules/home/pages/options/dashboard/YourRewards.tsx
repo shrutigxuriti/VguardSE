@@ -12,7 +12,7 @@ const YourRewards = () => {
 
     useEffect(() => {
         getBonusRewards()
-            .then((response) => response.json())
+            .then((response) => response.data)
             .then((responseData) => {
                 setRewards(responseData);
             })

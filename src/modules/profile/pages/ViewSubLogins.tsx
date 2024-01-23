@@ -14,7 +14,7 @@ const ViewSubLogins: React.FC = () => {
 
     const fetchData = async () => {
         getSubLoginList()
-            .then(response => response.json())
+            .then(response => response.data)
             .then((responseData) => {
                 setTableData(responseData);
                 console.log("<><<><<><>><", responseData, "<><<<><><><><><><<><");

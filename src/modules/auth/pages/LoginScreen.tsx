@@ -26,8 +26,16 @@ import language from '../../../assets/images/language.png';
 import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import DeviceInfo from 'react-native-device-info';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
+interface LoginScreenProps {
+  navigation: any;
+  route: {
+    params: {
+      usernumber?: string;
+    };
+  };
+}
+const LoginScreen: React.FC<LoginScreenProps> = ({ navigation, route }) => {
+  const usernumber = route.params.usernumber;
   const { t, i18n } = useTranslation();
   const [showLanguagePicker, setShowLanguagePicker] = useState(false);
 
@@ -76,6 +84,11 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [popupContent, setPopupContent] = useState("");
   const [selectedOption, setSelectedOption] = useState(true);
 
+  useEffect(()=>{
+    console.log(usernumber, "<><><>")
+    setUsername(usernumber);
+  }, [])
+
   const handleTermsPress = () => {
     setSelectedOption(!selectedOption);
   };
@@ -122,6 +135,7 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         setPopupContent("Wrong Username or Password!")
       }
     } catch (error) {
+      showLoader(false);
       console.error('Login error:', error);
     }
   };
@@ -141,7 +155,7 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
               icon={language}
             />
           </View>
-          {loader && <Loader />}
+          <Loader isLoading={loader} />
           <Image
             source={require('../../../assets/images/rishta_retailer_logo.webp')}
             style={styles.imageSaathi}
@@ -176,11 +190,11 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
             </View>
 
             <View style={styles.updateAndForgot}>
-              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('updatekyc')}>
+              {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('updatekyc')}>
                 <Text style={styles.buttonText}>
                   {t('strings:update_cap_kyc')}
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
 
               <TouchableOpacity
                 onPress={() => navigation.navigate('forgotPassword')}
@@ -209,12 +223,12 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
                 onPress={() => navigation.navigate('loginWithNumber')}
                 width="100%"
               />
-              <Buttons
+              {/* <Buttons
                 label={t('strings:first_login')}
                 variant="blackButton"
                 onPress={() => navigation.navigate('newLogin')}
                 width="100%"
-              />
+              /> */}
               {/* <Buttons
                 style={styles.button}
                 label={t('strings:new_user_registration')}

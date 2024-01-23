@@ -29,7 +29,7 @@ const ProductWise: React.FC<ProductWiseProps> = ({ navigation }) => {
 
   useEffect(() => {
     getProductWiseOffers()
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         
         const updatedData = responseData.map((category: Category) => ({

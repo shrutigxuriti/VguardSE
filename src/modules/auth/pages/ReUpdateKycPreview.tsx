@@ -36,7 +36,7 @@ const ReUpdateKycPreview: React.FC<ReUpdateKycPreviewProps> = ({ navigation }) =
     const handleSubmit = () => {
         console.log("Post Data:----", postData);
         reUpdateUserForKyc(postData)
-            .then(response => response.json())
+            .then(response => response.data)
             .then((responseData) => {
                 console.log("RESPONSE DATA:", responseData);
                 setPopupVisible(true);

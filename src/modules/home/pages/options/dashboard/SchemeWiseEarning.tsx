@@ -16,7 +16,7 @@ const SchemeWiseEarning: React.FC = () => {
 
   useEffect(() => {
     getSchemeWiseEarning()
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         setSchemeDetails(responseData);
       })

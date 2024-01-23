@@ -10,7 +10,7 @@ const RedemptionHistory = () => {
   const [redemptionHistoryData, setRedemptionHistoryData] = useState([]);
   useEffect(() => {
     getRedemptionHistory('')
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         setRedemptionHistoryData(responseData);
         console.log("<><<><<><>><", responseData, "<><<<><><><><><><<><");

@@ -15,28 +15,18 @@ interface ProductDetails {
 }
 
 const ProductWiseEarning: React.FC = () => {
-  const [productDetails, setProductDetails] = useState<ProductDetails[]>([]);
+  const [productDetails, setProductDetails] = useState<ProductDetails | {}>();
 
   useEffect(() => {
     getProdWiseEarning()
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         setProductDetails(responseData);
-        console.log(responseData)
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
   }, []);
-
-  const data = productDetails.map(product => [
-    product?.slNo.toString(),
-    product?.category,
-    product?.partDesc,
-    product?.points.toString(),
-    product?.couponCode,
-    product?.createdDate,
-  ]);
 
   const tableHead = ["Sl No.", "Product Category", "Material Description", "Points", "Coupon Code", "Created Date"];
 
@@ -44,12 +34,12 @@ const ProductWiseEarning: React.FC = () => {
     <ScrollView style={styles.container}>
       <ScrollView horizontal={true}>
         <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9'}}>
-          {data.length === 0 ? (
+          {productDetails ? (
             <Rows data={[['No Data']]} textStyle={[styles.text, { color: colors.grey, fontWeight: 'bold', textAlign: 'center' }]} />
           ) : (
             <>
               <Row data={tableHead} style={styles.head} widthArr={[50, 100, 320, 80, 150, 120]}  textStyle={styles.text} />
-              <Rows data={data} textStyle={styles.text} style={styles.row} widthArr={[50, 100, 320, 80, 150, 120]} />
+              <Rows data={productDetails} textStyle={styles.text} style={styles.row} widthArr={[50, 100, 320, 80, 150, 120]} />
             </>
           )}
         </Table>

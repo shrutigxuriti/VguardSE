@@ -22,7 +22,7 @@ const ActiveScheme: React.FC = () => {
 
   useEffect(() => {
     getActiveSchemeOffers()
-      .then(response => response.json())
+      .then(response => response.data)
       .then(responseData => {
         setData(responseData);
         console.log('<><<><<><>><', responseData, '<><<<><><><><><><<><');
@@ -133,8 +133,8 @@ const styles = StyleSheet.create({
     width: responsiveFontSize(8),
   },
   pdfimage: {
-    height: responsiveFontSize(3),
-    width: responsiveFontSize(3),
+    height: responsiveFontSize(4),
+    width: responsiveFontSize(4),
   },
   messageTextContainer: {
     maxWidth: responsiveWidth(65),

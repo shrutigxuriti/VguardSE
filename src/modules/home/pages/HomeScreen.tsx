@@ -40,7 +40,7 @@ const HomeScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
           redeemedPoints: user?.pointsSummary.redeemedPoints || 0,
           numberOfScan: user?.pointsSummary.numberOfScan || 0
         };
-        if(diffAcc == "1"){
+        if (diffAcc == "1") {
           setDisableOptions(true);
         }
         setUserData(shapedUser);
@@ -126,7 +126,7 @@ const HomeScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
               text="strings:redeem_points"
               iconSource={require('../../../assets/images/ic_redeem_points.webp')}
               screenName="Redeem Products"
-              diffAcc = {disableOptions}
+              diffAcc={disableOptions}
             />
             <CustomTouchableOption
               text="strings:dashboard"
@@ -135,12 +135,12 @@ const HomeScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
             />
           </View>
           <View style={styles.row}>
-            <CustomTouchableOption
+            {/* <CustomTouchableOption
               text="strings:update_pan"
               iconSource={require('../../../assets/images/ic_update_kyc.webp')}
               screenName="Update PAN"
               diffAcc = {disableOptions}
-            />
+            /> */}
             <CustomTouchableOption
               text="strings:scheem_offers"
               iconSource={require('../../../assets/images/ic_scheme_offers.png')}
@@ -151,25 +151,30 @@ const HomeScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
               iconSource={require('../../../assets/images/ic_vguard_info.webp')}
               screenName="info"
             />
-          </View>
-          <View style={styles.row}>
-            <CustomTouchableOption
-              text="strings:air_cooler"
-              iconSource={require('../../../assets/images/icon_air_cooler.webp')}
-              screenName="Air Cooler"
-            />
             <CustomTouchableOption
               text="strings:what_s_new"
               iconSource={require('../../../assets/images/ic_whats_new.webp')}
               screenName="new"
             />
+          </View>
+          <View style={styles.row}>
+            {/* <CustomTouchableOption
+              text="strings:air_cooler"
+              iconSource={require('../../../assets/images/icon_air_cooler.webp')}
+              screenName="Air Cooler"
+            />  */}
             <CustomTouchableOption
               text="strings:raise_ticket"
               iconSource={require('../../../assets/images/ic_raise_ticket.webp')}
               screenName="ticket"
             />
+            <CustomTouchableOption
+              text="strings:engagement"
+              iconSource={require('../../../assets/images/elink.png')}
+              screenName="Engagement"
+            />
           </View>
-          <View style={styles.row}>
+          {/* <View style={styles.row}>
             <CustomTouchableOption
               text="strings:update_bank"
               iconSource={require('../../../assets/images/ic_raise_ticket.webp')}
@@ -181,18 +186,15 @@ const HomeScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
               iconSource={require('../../../assets/images/tds_ic.png')}
               screenName="TDS Certificate"
             />
-            <CustomTouchableOption
-              text="strings:engagement"
-              iconSource={require('../../../assets/images/elink.png')}
-              screenName="Engagement"
-            />
-          </View>
+
+          </View> */}
           <View style={styles.lastrow}>
-            <CustomTouchableOption
+
+            {/* <CustomTouchableOption
               text="strings:tds_statement"
               iconSource={require('../../../assets/images/tds_ic.png')}
               screenName="TDS Statement"
-            />
+            /> */}
           </View>
         </View>
         <NeedHelp />
