@@ -8,26 +8,18 @@ import { getSchemeImages } from '../../../../../utils/apiservice';
 import ReusableUrlCarousel from '../../../../../components/ReusableUrlCarousel';
 
 const Schemes: React.FC = () => {
-  const carouselData = [
-    { imageUrl: require('../../../../../assets/images/banner_redeem_ppoints.webp') },
-    { imageUrl: require('../../../../../assets/images/banner.webp') },
-    { imageUrl: require('../../../../../assets/images/banner_redeem_ppoints.webp') },
-  ];
   const [imageArray, setImageArray] = useState(null);
   const imageUrl = "https://vguardrishta.com/";
 
   useEffect(() => {
     console.log("Image loading");
     getSchemeImages()
-      .then(response => response.data
-        .then(result => {
-          console.log("Result:", result)
+      .then(response => {
+          const result = response.data
           var ar = [];
           result.map(r => ar.push({ imageUrl: imageUrl + r.imgPath }));
           setImageArray(ar)
-          const image = imageArray;
-          console.log("Image Array", image)
-        }))
+        })
   }, [])
 
   return (

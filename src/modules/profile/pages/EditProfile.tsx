@@ -408,7 +408,7 @@ const EditProfile: React.FC<{ navigation: any }> = ({ navigation }) => {
   const triggerApiWithImage = async (fileData: { uri: string; type: string; name: string }, imageRelated: string) => {
     try {
       const formData = new FormData();
-      formData.append('USER_ROLE', '2');
+      formData.append('userRole', '1');
       formData.append('image_related', imageRelated);
       formData.append('file', {
         uri: fileData.uri,

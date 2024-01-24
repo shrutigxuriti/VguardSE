@@ -77,7 +77,6 @@ async function createPostRequest(
 async function createGetRequest(relativeUrl: string): Promise<AxiosResponse> {
     try {
         const accessToken = await AsyncStorage.getItem('accessToken');
-        console.log(accessToken)
         api.defaults.headers.common['Authorization'] = accessToken;
         const response = await api.get(relativeUrl);
         console.log("RESPONSE", response.data);

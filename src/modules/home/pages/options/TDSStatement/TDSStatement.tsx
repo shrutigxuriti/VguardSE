@@ -140,6 +140,7 @@ const TDSStatement: React.FC<TDSProps> = () => {
   }, []);
 
   useEffect(() => {
+    console.log("<><><><", postData)
     getTdsStatementList(postData)
       .then((response) => response.data)
       .then((responseData) => {
@@ -168,7 +169,7 @@ const TDSStatement: React.FC<TDSProps> = () => {
 
   return (
     <ScrollView style={styles.mainWrapper}>
-      {loader && <Loader />}
+      {loader && <Loader isLoading={loader} />}
 
       <Text style={styles.greyText}>{t('strings:select_fiscal_year')}</Text>
       <TouchableOpacity onPress={() => setIsFocusFiscalYear((prev) => !prev)}>

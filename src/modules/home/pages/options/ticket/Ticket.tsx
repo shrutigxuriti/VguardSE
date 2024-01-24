@@ -160,13 +160,13 @@ const Ticket: React.FC<{ navigation: any }> = ({ navigation }) => {
     showLoader(true);
     let imageUrl = await triggerApiWithImage(fileData);
     const postData = {
-      userId: userData.userId,
-      issueTypeId: selectedOption,
+      userId: parseInt(userData.userId, 10),
+      issueTypeId: selectedOption.toString(),
       imagePath: imageUrl,
       description: descriptionInput,
     };
     console.log("Post Data========", postData)
-    if (postData.userId != '' && postData.issueTypeId != '') {
+    if (postData.userId != null && postData.issueTypeId != '') {
       sendTicket(postData)
         .then((response) => {
           console.log("RESPONSE", response)
@@ -211,8 +211,8 @@ const Ticket: React.FC<{ navigation: any }> = ({ navigation }) => {
   const triggerApiWithImage = async (fileData: { uri: string; type: string; name: string }) => {
     if (fileData.uri != "") {
       const formData = new FormData();
-      formData.append('USER_ROLE', '2');
-      formData.append('image_related', 'TICKET');
+      formData.append('userRole', '1');
+      formData.append('image_related', 'Ticket');
       formData.append('file', {
         uri: fileData.uri,
         name: fileData.name,
